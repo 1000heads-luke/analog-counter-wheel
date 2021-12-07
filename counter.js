@@ -142,6 +142,11 @@ Counter.prototype.moveTo = function(pos){
 	}
 };
 
+Counter.prototype.moveToValue = function(value){
+	var pos = this.values.indexOf(value);
+	if(pos>=0) return this.moveTo(pos);
+	else throw new Error('"'+value+'" is not a item on Counter.values[]');
+}
 
 Counter.prototype.next = function(){
 	this.moveBy(1);
